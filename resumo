@@ -1,0 +1,157 @@
+COMUNICAÇÃO: informação do emissor para receptor
+CONECTIVIDADE: capacidade de 2+ dispositivos/sistemas/redes estabelecerem comunicação entre si para trocar dados
+
+MODELO OSI
+- Facilita troca informações
+- Modelo de referência (onjunto de camadas que define como a comunicação acontece)
+- 7 camadas:
+  1. FÍSICA
+  - transmissão física de bits através do meio
+  - define características elétricas, ópticas e mecânicas
+  - ex. sinais elétricos em cabos de cobre
+  - Transmissor (converte bits em sinais) para receptor (reconstrói bits)
+  2. ENLACE DE DADOS
+  - Agrupa bits em quadros (frames) e controla o acesso ao meio
+  - Realiza detecção e correção de erros
+  - Utiliza enderaçamento físico (MAC Address: comunicação de dados) - - - MAC Local
+  - Entrega dados nó a nó na mesma rede física
+  - ex. Comunicação entre dois dispositivos via Ethernet ou Wi-Fi
+  - PCa para PCb
+  3. REDE
+  - Encaminha pacotes de dados entre redes distintas e roteamento de pacotes
+  - Utiliza endereçamento lógico (IP) e roteadores
+  - ex. Encaminhamento de pacotes IP por roteadores até o destino
+  4. TRANSPORTE
+  - Entrega fim a fim, fragmentando mensagens em segmentos
+  - Protocolos: TCP (confiável) e UDP (não confiável)
+  - ex. Download de arquivo via TCP, streaming de áudio via UDP
+  5. SESSÃO
+  - Gerencia e sincroniza diálogos entre aplicações
+  - ex. Login em uma videoconferência
+  6. APRESENTAÇÃO
+  - Traduz dados (compressão, criptografia e conversões)
+  - ex. compressão de imagens em JPEG
+  7. APLICAÇÃO
+  - Interface entre o usuário e a rede
+  - ex. Acesso à web com HTTP, envio de e-mail via SMTP
+
+MODELO TCP/IP
+- Interligar redes heterogêneas em padrão
+- Mais prático
+- 4 camadas: Aplicação, transporte, internet e acesso à rede
+  1. ACESSO À REDE (OSI: ENLACE E FÍSICA)
+  - Como os dados são transmitidos fisicamente
+  2. INTERNET (OSI: REDE)
+  3. TRANSPORTE
+  4. APLICAÇÃO (OSI: APLICAÇÃO, APRESENTAÇÃO E SESSÃO)
+
+PROTOCOLO: Conjunto de regras que define comunicação dos dispositivos em rede
+- Uma transmissão pode usar vários protocolos (Que operem em camadas diferentes) ao mesmo tempo (HTTP, TCP, IP E ETHERNET)
+- Se usar a mesma camada NÃO PODE (TCP OU UDP)
+- PDU = Quadros: Mensagens relacionadas a protocolos + Cabeçalho (Informações de controle) no meio físico
+  - Protoclos TCP/IP: Aplicação, Segmento/Datagrama (Transporte), Pacote (Rede) e Quadro (Acesso à rede)
+
+TIPOS DE REDES
+- LAN (Local): Ethernet, Wi-fi, PLC
+  - Equipamento: SWITCH: Conectam vários dispositivos em LAN
+    - Rede comutada
+    - Limitação de escala
+  - Comunicação com endereços físicos
+- MAN (Metrapolitana): PON
+- WAN (Longa distância): TCP/IP
+  - Equipamento: Roteador
+- PAN (Área pessoa): Bluetooth
+Uso de Endereços Lógicos em LAN, MAN OU WAN (Comunicação em diferentes redes, encaminha pacotes com roteadores)
+  - IP (rede computadores)
+    - IPv4: + = identificador rede e - = identificador host
+      - Máscara de sub-rede: separa parte ip identifica rede e parte identifica hosts da rede
+    - IPv6
+  - Classful (IP com classe):
+    - Classe | 1º Octeto | Máscara padrão | Prefixo | Exemplo
+        A        1-126        255.0.0.0        /8    10.0.0.0/8
+        B       128-191      255.255.0.0       /16   172.16.0.0/16
+        C       192-223     255.255.255.0      /25   192.168.1.0/24
+    Obs: O que tem número no exemplo é a parte da rede (identifica rede que o dispositivo pertence), a que tem 0 é a do host (identifica dispositivo específico)
+  - Classless/CIDR (Sem classe)
+    - Máscara de sub-rede de tamanho variável (prefixos de qualuer tamanho)
+    - Máscara: 255.255.255.0 (24 bits para rede, 8 para host)
+    - CIDR: /24 (Igual o acima)
+
+Topologia de Rede: como os dispositivos estão conectados
+- Ponto a ponto (a - b)
+- Barramento (a - x - b)
+  - Um computador transmite de cada vez
+  - Rede com ethernet não comutada
+- Estrela ( a - x - b, c - x - d)
+- Anel ( a - b - c - d - e - a)
+- Árvore ( a - b/c, c - d/e/f)
+- Mesh (bagunça)
+- Malha (todos conectados entre sí)
+
+TIPOS DE TRANSMISSÃO
+- Unicast: 1 emissor para 1 receptor
+- Broadcast: 1 emissor para todos receptores da rede (Só em LANs)
+  - Equipamento: Rede com HUB: Amplifica sinal e retransmite dados (Não dá pra enviar informações nesse processo)
+- Multicast 1 emissor para vários receptores da rede (não necessariamente todos)
+
+COMANDOS DE REDE
+  - Lip a (Linux) ou ipconfig (Windows e macOS): Mostra interfaces de rede e IP
+  - ping [destino]: conectividade
+  - traceroute[destino] : mapeia rota dos seus pacotes (em saltos/roteador)
+  - nslookup[dom]: consulta servidor DNS para traduzir domínio
+  - netstat -tuln (linux) -an (Windows e macOS): lista conexões da rede ativas e portas
+    - ss -tuln
+
+ENDEREÇOS LÓGICOS
+- identificação e localização dentro de uma rede
+LAN, MAN ou WAN.
+
+ENDEREÇO DA REDE
+- Primeiro endereço do intervalo
+- Quando todos os bits do endereço IP que representem o Host forem 0
+
+ENDEREÇO DE BROADCAST
+- Último endereço do intervalo
+- Quando todos os bits do endereço IP que representam o Host forem 1.
+
+REGRAS ENDEREÇAMENTO
+- Mesmo identificador de rede em todos os dispositivos de sub-rede
+- Cada sub-rede deve ter um identificador de rede (endereço) diferente
+
+ex. Dado o endereço IP 192.168.2.100 e máscara de sub rede 255.255.240.0, encontre:
+
+1º Fazer máscara de sub-rede em binário: 11111111.11111111.11110000.00000000 (20 primeiros bits são de rede)
+2º Cada octeto de um IP vai de 0 a 255 (256 valores possíveis)
+Então para calcular o tamanho do bloco da sub-rede: bloco = 256 - valor da máscara no octeto
+256 - 240 = 16 (O 240 vem da máscara)
+Logo, os intervalos possíveis no terceiro octeto são: 0, 16, 32, 48, ... até 240
+O IP 192.168.2.100 está dentro do intervalo 192.168.0.0 (Rede) - 192.168.15.255 (Broadcast)
+a) Encontre o endereço de rede: 192.168.0.0
+b) Encontre o endereço de broadcast: 192.168.15.255
+
+Máscara /20 = 20 bits são usados pra rede e 12 para o host
+Número de endereços = 2^12 = 4096
+Logo: 4096 - 2 = 4094 (tirando rede e broadcast)
+c) Encontre a quantidade de dispositivos possíveis: 4094
+
+d) Encontre o endereço do primeiro e do último dispositivo possível: 
+Primeiro: endereço da rede + 1 = 192.168.0.1
+Último: endereço de broadcast - 1 = 192.168.15.254
+
+ex2. Dado o endereço IP 192.168.2.100 / 26, encontre:
+Máscara /26 significa 26 bits para rede e 6 para host
+Então a máscara é 255.255.255.292 (O último octeto em binário é 11000000 = 192)
+256 - 192 = 64
+Intervalos: 0, 64, 128, ... 192
+100 cai entre o intervalo 64 - 127
+
+a) Encontre o endereço de rede: 192.168.2.64
+b) Encontre o endereço de broadcast: 192.168.2.127
+
+26 rede e 6 host
+2^6 = 64
+64 - 2 = 62
+c) Encontre a quantidade de dispositivos possíveis: 62
+d) Encontre o endereço do primeiro e do último dispositivo possível:
+Primeiro: 192.168.2.65
+Último: 192.168.2.126
