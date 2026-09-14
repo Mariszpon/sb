@@ -1,9 +1,11 @@
 COMUNICAÇÃO: informação do emissor para receptor
 CONECTIVIDADE: capacidade de 2+ dispositivos/sistemas/redes estabelecerem comunicação entre si para trocar dados
+IP origem e destino é fixo
+MAC é modificado
 
 MODELO OSI
 - Facilita troca informações
-- Modelo de referência (onjunto de camadas que define como a comunicação acontece)
+- Modelo de referência (conjunto de camadas [classificam equipamentos] que define como a comunicação acontece)
 - 7 camadas:
   1. FÍSICA
   - transmissão física de bits através do meio
@@ -18,6 +20,11 @@ MODELO OSI
   - ex. Comunicação entre dois dispositivos via Ethernet ou Wi-Fi
   - PCa para PCb
   3. REDE
+  - Equipamento: roteador
+    - Usa tabela de roteamento pra descobrir o destino
+    - Informação fornecida por protocolos
+    - EIGPR: Roteamento interno
+    - Protocolos de roteamento minimizam saltos e custo das rotas
   - Encaminha pacotes de dados entre redes distintas e roteamento de pacotes
   - Utiliza endereçamento lógico (IP) e roteadores
   - ex. Encaminhamento de pacotes IP por roteadores até o destino
@@ -36,7 +43,8 @@ MODELO OSI
   - ex. Acesso à web com HTTP, envio de e-mail via SMTP
 
 MODELO TCP/IP
-- Interligar redes heterogêneas em padrão
+- Direciona pacotes entre diferentes redes
+- Interligar redes
 - Mais prático
 - 4 camadas: Aplicação, transporte, internet e acesso à rede
   1. ACESSO À REDE (OSI: ENLACE E FÍSICA)
@@ -46,10 +54,11 @@ MODELO TCP/IP
   4. APLICAÇÃO (OSI: APLICAÇÃO, APRESENTAÇÃO E SESSÃO)
 
 PROTOCOLO: Conjunto de regras que define comunicação dos dispositivos em rede
+- Define como WiFi e bluetooth funcionam
 - Uma transmissão pode usar vários protocolos (Que operem em camadas diferentes) ao mesmo tempo (HTTP, TCP, IP E ETHERNET)
 - Se usar a mesma camada NÃO PODE (TCP OU UDP)
 - PDU = Quadros: Mensagens relacionadas a protocolos + Cabeçalho (Informações de controle) no meio físico
-  - Protoclos TCP/IP: Aplicação, Segmento/Datagrama (Transporte), Pacote (Rede) e Quadro (Acesso à rede)
+  - Protocolos TCP/IP: Aplicação/mensagem, Segmento/Datagrama (Transporte), Pacote (Rede) e Quadro (Acesso à rede)
 
 TIPOS DE REDES
 - LAN (Local): Ethernet, Wi-fi, PLC
@@ -63,7 +72,8 @@ TIPOS DE REDES
 - PAN (Área pessoa): Bluetooth
 Uso de Endereços Lógicos em LAN, MAN OU WAN (Comunicação em diferentes redes, encaminha pacotes com roteadores)
   - IP (rede computadores)
-    - IPv4: + = identificador rede e - = identificador host
+    - NAT (Soluciona esgotamento de endereço IP)
+    - IPv4: Endereço lógico de todos dispositivos em redes TCP-IP (Possui 32 bits destinados a rede e host pode variar)
       - Máscara de sub-rede: separa parte ip identifica rede e parte identifica hosts da rede
     - IPv6
   - Classful (IP com classe):
@@ -138,7 +148,7 @@ d) Encontre o endereço do primeiro e do último dispositivo possível:
 Primeiro: endereço da rede + 1 = 192.168.0.1
 Último: endereço de broadcast - 1 = 192.168.15.254
 
-ex2. Dado o endereço IP 192.168.2.100 / 26, encontre:
+ex2. Dado o endereço IP 192.168.2.100 /26, encontre:
 Máscara /26 significa 26 bits para rede e 6 para host
 Então a máscara é 255.255.255.292 (O último octeto em binário é 11000000 = 192)
 256 - 192 = 64
@@ -146,12 +156,24 @@ Intervalos: 0, 64, 128, ... 192
 100 cai entre o intervalo 64 - 127
 
 a) Encontre o endereço de rede: 192.168.2.64
+  - Endereço IP: 11000000.10101000.00000010.01000000
 b) Encontre o endereço de broadcast: 192.168.2.127
 
 26 rede e 6 host
 2^6 = 64
 64 - 2 = 62
-c) Encontre a quantidade de dispositivos possíveis: 62
-d) Encontre o endereço do primeiro e do último dispositivo possível:
+c) Encontre a quantidade de dispositivos possíves/quantos hosts podem existir nessa rede: 62
+d) Encontre o endereço do primeiro e do último dispositivo possível/endereço utilizável da sub-rede:
 Primeiro: 192.168.2.65
 Último: 192.168.2.126
+e) CIDR equivalente: /26
+
+SIGLAS
+- BGP (Roteamento)
+- NAT (Apoio): Traduz endereços privados em públicos e vice-versa
+- OSPF (Roteamento)
+- ARP (Apoio)
+- PING (Apoio): Auxilia configurações com ICMP
+- ARP: Identifica endereço físico a partir do lógico (IPv4)
+- ICMP: Transporta mensagens e testa equipamentos
+- IGMP: Formação de grupos multicast
