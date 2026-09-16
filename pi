@@ -10,12 +10,37 @@ short: valores peuenos, 2 bytes
 long: valores maiores, 4 bytes
 
 Números reais (quebrados)
-float: 6/7 casas decimais, 4 bytes
+float: representa até 6/7 casas decimais, 4 bytes
 double: 15/16 casas decimais, 8 bytes
 long double: 18+ casas decimais, 12/16 bytes
 
 Caractere
 char: único caractere, 1 byte
 getchar() lê caractere (retorna int com código ASCII)
+ex. 
+A = 65
+a = 97
 
-Bool
+Lógico
+bool: verdadeiro (1) ou falso (0), 1 byte
+
+UTILITÁRIOS
+#include <limits.h> mostra valores min/max inteiros
+#include <float.h> mostra limites de ponto flutuante
+sizeof(tipo) retorna tamanho em bytes
+
+CONSTANTES (fixos)
+const tipo nome = valor; cria variável
+#define NOME valor  substitui texto (não cria variável)
+
+ENTRADA E SAÍDA
+printf: imprime mensagem/valor
+scanf: lê dados digitados
+Especificadores de formato
+%d → inteiro decimal (%3d = largura mínima 3)
+%x → inteiro hexadecimal
+%f → float (%.2f = 2 casas decimais)
+%lf → double (%.2lf = 2 casas decimais)
+%e → notação científica (float/double)
+%c → caractere único
+%s → string (array de char terminado com \0)
