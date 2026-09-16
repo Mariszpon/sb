@@ -1,0 +1,21 @@
+ESTRUTURA BÁSICA
+main: função principal
+int: retorno da função
+todo comeando termina com ;
+
+TIPOS DE DADOS
+Números inteiros
+int: padrão, 4 bytes (32 bits)
+short: valores peuenos, 2 bytes
+long: valores maiores, 4 bytes
+
+Números reais (quebrados)
+float: 6/7 casas decimais, 4 bytes
+double: 15/16 casas decimais, 8 bytes
+long double: 18+ casas decimais, 12/16 bytes
+
+Caractere
+char: único caractere, 1 byte
+getchar() lê caractere (retorna int com código ASCII)
+
+Bool
