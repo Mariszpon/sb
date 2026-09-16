@@ -1,0 +1,59 @@
+Sempre começa com
+#include <stdio.h>
+Permite o uso das funções printf (imprime string) e scanf (ler dados)
+
+int main () {
+  return 0
+  }
+main é a função pela ual se inicia a execução do programa
+int é o tipo de retorno da função main
+main retorna o valor 0
+todo comando é terminado por ";"
+
+NÚMEROS INTEIROS (...-1, 0, 1...)
+int: padrão, 4 bytes (32 bits)
+short: valores pequenos (ex. idade), 2 bytes
+long: valores longos, 4 bytes
+
+NÚMEROS REAIS (números quebrados)
+float: 6-7 casas, 4 bytes
+double: 15-16 casas, 8 bytes
+long double: 18+, 12/16 bytes
+
+CARÁTER
+char: um caractere, 1 byte
+getchar: retorna um caractere (int que representa o código ASCII do caractere digitado)
+- Tabela ASCII
+A = 65
+a = 97
+
+LÓGICO
+bool: 1 verdade/0 falso, 1 byte
+
+#include <limits.h> 
+#include <float.h>
+Mostra mínimo e máximo
+
+sizeof(tipo) Mostra a quantidade de bytes
+
+CONSTANTES (valor fixo)
+const (const 'tipo' 'variável' = 'x')
+#define (não cria variável
+
+LEITURA
+scanf: retorna um dado, deixa o usuário digitar (ex. scanf (%d, &idade)
+
+                                                 ESPECIFICADORES DE FORMATO (do printf e scanf)
+%d int na forma decimal - pode aparecer como %3d (quantidade caracteres)
+%x int na forma hexadecimal
+%f float - pode aparecer como %0.2f (qnts casas)
+%lf double  - pode aparecer como %.2lf (qnts casas)
+                                                 %e float ou double em notação científica
+                                                 %c char (único caractere)
+                                                 %s string (array de char terminado com \0)
+
+
+
+
+
+                                                 
