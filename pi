@@ -2,12 +2,14 @@ ESTRUTURA BÁSICA
 main: função principal
 int: retorno da função
 todo comeando termina com ;
+void: não retorna valor
 
 TIPOS DE DADOS
 Números inteiros
 int: padrão, 4 bytes (32 bits)
 short: valores peuenos, 2 bytes
 long: valores maiores, 4 bytes
+long long: 8 bytes
 
 Números reais (quebrados)
 float: representa até 6/7 casas decimais, 4 bytes
@@ -24,9 +26,78 @@ a = 97
 Lógico
 bool: verdadeiro (1) ou falso (0), 1 byte
 
+unsigned: o tipo passa a aceitar somente valores positivos (0 pra cima)
+enum: define novo tipo de dado (const inteira nomeada, usada pra conjuntos)
+typedef 'tipo-existente novo-tipo': o novo-tipo vira sinônimo do tipo-existente
+printf: imprime
+scanf: lê dados digitados pelo usuário e armazena em variáveis (scanf("%f", &altura);)
+sscanf: lê dados de string
+gets: lê linha inteira de texto e armazena char (String) obs. aceita espaços
+puts: imprime string inteira (adiciona \n no final automatico)
+strlen: descobre tamanho de string e size_t: representa tamanho com impressão %zu
+strcspn: encontra posicao do 1° caractere indesejado em uma string
+strcpy: copia string pra outra (onde copia vai ser armazenada, o que quero copiar)
+strcmp: compara strings
+strstr: busca substring dentro de string
+fgets: substitui gets
+stdin: leitura vem do teclado
+
+STRINGS:
+Sequência de caráteres terminada por \0
+ex. char palavra[3];
+palavra[0] = 'L';
+palavra[1] = 'O';
+palavra[2] = 'L';
+palavra[3] = '\0';
+Se ficar vazio e ter mais letras, dá erro
+
+VETORES: Coleção de elementos do mesmo tipo
+Começa pelo índice 0
+tipo identificador [capacidade];
+ex. float faturamento[2] = {7.0, 8.5};
+ou
+float nota [2];
+nota[0] = 7.0;
+...
+
+STRUCT
+struct <identificador>{
+<lista de campos>
+};
+ex. struct Eu {
+  int idade;
+  char letra;
+};
+
+struct <identificador-tipo> <identificador-variavel>;
+ex. struct Eu e1;
+e1.idade=19;
+e1.letra=a;
+
+FUNÇÃO
+tipo_retorno nome (parametros) {
+  [declaracao variaveis]
+  comandos
+}
+
+MATRIZES
+int M[x][y]={
+  {'a', 'b', 'c'},
+  {'d', 'e', 'f'}
+};
+Obs: 1 char usa '', uma string usa ""
+ex. 'a' "Curitiba"
+
+PONTEIROS (Guarda end de memória, armazena onde o valor está)
+%p: imprime endereços de memória em hexadecimal
+int* y = &x: Cria um ponteiro chamado y, &x significa endereço de memória da variável x
+y guarda o endereço onde x tá armazenado
+char*: ponteiro para char
+
 UTILITÁRIOS
 #include <limits.h> mostra valores min/max inteiros
 #include <float.h> mostra limites de ponto flutuante
+#include <stdlib.h> define função serbuf e outras
 sizeof(tipo) retorna tamanho em bytes
 
 CONSTANTES (fixos)
@@ -42,5 +113,41 @@ Especificadores de formato
 %f → float (%.2f = 2 casas decimais)
 %lf → double (%.2lf = 2 casas decimais)
 %e → notação científica (float/double)
-%c → caractere único
+%c → caractere único (pode ter espaço antes pra ignorar \n, enter ou espaços)
 %s → string (array de char terminado com \0)
+%p → especificador de formato, imprime endereços de memória em hexadecimal
+
+OPERADORES LÓGICOS
+&& (e)
+|| (Ou)
+! (Não)
+
+COMANDO IF
+if (expressão lógica)
+  comando 1
+else if
+  comando 2
+else
+  comando 3
+
+COMANDO SWITCH
+switch (expressão) {
+  caso L1:
+  caso L2:
+  default:
+}
+
+L1, L2... devem ser inteiros ou carácteres
+A default é opcional
+
+COMANDO WHILE: Enquanto a expressão é verdade, execute (testa antes de executar)
+while (expressão)
+  comando
+COMANDO DO-WHILE: Execute o comando enquanto a expressão é verdadeira (Executa antes de testar)
+do
+  comando
+while (expressão);
+
+COMANDO FOR: Enquanto a expressão-logica for verdadeira, execute
+for (expressao-inicial ; expressao-logica ; expressao-incremento)
+  comando
