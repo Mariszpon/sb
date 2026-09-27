@@ -1,0 +1,100 @@
+HTML 1
+
+Coloca !
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>titulo</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <input id="inptEmail" class="inpt" placeholder="Email" required>
+        <input type="password" id="inptSenha" class="inpt" placeholder="Senha" required>
+        <button id="btnEntrar" class="btn" >Entrar</button>
+    </div>
+    <script src="./index.js" defer></script>
+</body>
+</html>
+
+Precisa mudar título e colocar o link e script
+
+COMO LINKAR JS E CSS
+  JS: Coloca SCRIPT no body
+    <script src="./index.js" defer></script>
+    defer serve pra controlar quando o JS é carregado, só executa dps que HTML estiver pronto
+  CSS: Coloca LINK no head
+    <link rel="stylesheet" href="./index.css">
+    rel="stylesheet" serve pra indicar que é CSS aplicada ao HTML
+
+DIV E FORM
+<div></div>
+Genérico
+
+
+CLASS E ID
+  Usa class="nomeClasse" para usar classe no CSS
+  Coloca .nomeClasse para usar
+  Usa id="nomeId" pra usar do JS
+
+TIPOS DE INPUT
+    <!-- Texto -->
+    <input type="text" placeholder="Nome" required>
+    <!-- Email -->
+    <input type="email" placeholder="Email" required>
+    <!-- Senha -->
+    <input type="password" placeholder="Senha" required>
+    <!-- Número -->
+    <input type="number" placeholder="Idade" min="0" max="120">
+    <!-- Telefone -->
+    <input type="tel" placeholder="Telefone">
+    <!-- Data -->
+    <input type="date">
+    <!-- Botão de envio -->
+    <button type="submit">Enviar</button>
+
+  ATRIBUTOS DE INPUT
+    Placeholder: texto que aparece
+    min/max: valores para number
+    required: obrigatório
+
+BOTÃO
+  <button>texto</button>
+  Pode ser usado type="submit" para enviar o formulário (Padrão se estiver dentro de <form></form>)
+
+HTML 2
+<form></form>
+Agrupa corretamente
+Envia dados pro JS com submit
+
+TABELA
+<table>
+  
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cor</th>
+      <th>Idade</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>Mari</td>
+      <td>Verde</td>
+      <td>19</td>
+    </tr> 
+  </tbody>
+  
+</table>
+
+<table></table> Define tabela
+<thead></thead> Título das informações (Cabeçalho)
+<tr></tr> Linha
+<th></th> Cabeçalho
+
+<tbody></tbody> Agrupa dados
+<td></td> Dados
