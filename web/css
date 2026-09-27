@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+* Engobla tudo
+box-sizing: Navegador calculado dentro da largura/altura definida
+
+ÚTEIS:
+  .nomeClass{
+    atributos
+  }
+  
+      padding (-top/right/bottom/left): 5px; Espaço interno
+      margin: 5px; Espaço externo (Pode ter auto, que centraliza horizontal)
+      width: 90%; Largura
+      top/bottom: 5px; Move pra cima/baixo
+      left/right: 5px; Move pra esquerda/direita
+  
+      background-color/image: #ffff; Cor de fundo
+      color: white; Cor do texto
+      opacity: 0; Opacidade
+    
+      border: 2px solid black; Define borda (com)
+      border: none; Define borda (sem)
+      border-radius: 5px; Arredonda os cantos da borda
+  
+      overflow: hidden; Esconde o que ultrapasse do container
+
+  PARA TABLE
+      border-collapse: collapse/separate; Mantém as bordas juntas/separadas
+
+    TR COM CORES DIFERENTES
+      tr {
+          background-color: white;
+      }
+
+      tr:nth-child(even){
+          background-color: black;
+      }
+
+  PARA ALINHAR TUDO:
+      display: flex; Elemento fica flexível
+      justify-content: center; Alinha horizontal
+      align-items: center; Alinha vertical
+      flex-direction: column; Organiza em coluna (Um abaixo do outro)
+      flex-direction: row; Organiza lado a lado
+
+
+      gap: 20px; Espaço entre os itens com display:flex
+
+      text-align: center;
+  
+  POSIÇÃO
+      position: relative; Faz com o absolute se posicione baseado nele
+      position: absolute;
+  
+  GRID
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; 3 colunas iguais
+      grid-template-rows: auto;          altura automática
+      grid-column: 1/2; ocupa só a primeira coluna
+      grid-row: 1/2; ocupa só a primeira linha.
+  
+
+  BOTÃO AINMAÇÃO
+  
+  Normal:
+  .nomeClassBtn{
+      border: none;
+      transition: 0.5s;
+  }
+  
+  Quando vai em cima:
+  .nomeClassBtn:hover{
+    
+  }
